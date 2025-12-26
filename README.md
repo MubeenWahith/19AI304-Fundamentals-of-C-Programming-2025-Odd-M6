@@ -33,7 +33,28 @@ To develop a C program using the static storage class in a function with a param
 ### Step 8:
   Stop
 # Program:
+~~~
+#include <stdio.h>
+
+void displayCount(int num) {
+    static int count = 0;
+    count++;
+    
+    printf("Function called %d time(s) with parameter: %d\n", count, num);
+}
+
+int main() {
+    displayCount(10);
+    displayCount(20);
+    displayCount(30);
+    displayCount(40);
+    
+    return 0;
+}
+~~~
 # Output:
+<img width="527" height="204" alt="image" src="https://github.com/user-attachments/assets/5570d590-4fb8-48e3-959a-50cb952ca30a" />
+
 # Result: 
 Thus, the program was implemented and executed successfully, and the required output was obtained.
 
@@ -79,7 +100,79 @@ Thus, the program was implemented and executed successfully, and the required ou
 ### Step 11:
   Stop
 # Program:
+~~~
+#include <stdio.h>
+
+int add(int a, int b) {
+    return a + b;
+}
+
+int subtract(int a, int b) {
+    return a - b;
+}
+
+int multiply(int a, int b) {
+    return a * b;
+}
+
+float divide(int a, int b) {
+    if(b != 0) {
+        return (float)a / b;
+    } else {
+        printf("Error: Division by zero!\n");
+        return 0;
+    }
+}
+
+int main() {
+    int num1, num2, choice;
+    int (*intFunc)(int, int);
+    float (*floatFunc)(int, int);
+    
+    printf("Enter first number: ");
+    scanf("%d", &num1);
+    printf("Enter second number: ");
+    scanf("%d", &num2);
+    
+    printf("\nSelect operation:\n");
+    printf("1. Addition\n");
+    printf("2. Subtraction\n");
+    printf("3. Multiplication\n");
+    printf("4. Division\n");
+    printf("Enter choice (1-4): ");
+    scanf("%d", &choice);
+    
+    switch(choice) {
+        case 1:
+            intFunc = add;
+            printf("Result: %d + %d = %d\n", num1, num2, intFunc(num1, num2));
+            break;
+            
+        case 2:
+            intFunc = subtract;
+            printf("Result: %d - %d = %d\n", num1, num2, intFunc(num1, num2));
+            break;
+            
+        case 3:
+            intFunc = multiply;
+            printf("Result: %d * %d = %d\n", num1, num2, intFunc(num1, num2));
+            break;
+            
+        case 4:
+            floatFunc = divide;
+            printf("Result: %d / %d = %.2f\n", num1, num2, floatFunc(num1, num2));
+            break;
+            
+        default:
+            printf("Invalid choice!\n");
+    }
+    
+    return 0;
+}
+~~~
 # Output:
+<img width="354" height="330" alt="image" src="https://github.com/user-attachments/assets/805e8df3-c735-4c31-8842-f92c24aa7ca4" />
+
 # Result: 
 Thus, the program was implemented and executed successfully, and the required output was obtained.
 
@@ -123,7 +216,11 @@ Thus, the program was implemented and executed successfully, and the required ou
 ### Step 10:
   Stop
 # Program:
+~~~
+
+~~~
 # Output:
+
 # Result: 
 Thus, the program was implemented and executed successfully, and the required output was obtained.
 
