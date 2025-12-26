@@ -217,9 +217,54 @@ Thus, the program was implemented and executed successfully, and the required ou
   Stop
 # Program:
 ~~~
+#include <stdio.h>
 
+struct Employee {
+    int empno;
+    char name[50];
+    float salary;
+};
+
+int main() {
+    int n;
+    
+    printf("Enter number of employees: ");
+    scanf("%d", &n);
+    
+    struct Employee emp[n];
+    
+    for(int i = 0; i < n; i++) {
+        printf("\nEmployee %d:\n", i + 1);
+        printf("Number: ");
+        scanf("%d", &emp[i].empno);
+        printf("Name: ");
+        scanf("%s", emp[i].name);
+        printf("Salary: ");
+        scanf("%f", &emp[i].salary);
+    }
+    
+    float max = emp[0].salary;
+    
+    for(int i = 1; i < n; i++) {
+        if(emp[i].salary > max) {
+            max = emp[i].salary;
+        }
+    }
+    
+    printf("\nHighest Salary: %.2f\n", max);
+    printf("Employees with highest salary:\n");
+    
+    for(int i = 0; i < n; i++) {
+        if(emp[i].salary == max) {
+            printf("%d %s %.2f\n", emp[i].empno, emp[i].name, emp[i].salary);
+        }
+    }
+    
+    return 0;
+}
 ~~~
 # Output:
+<img width="329" height="469" alt="image" src="https://github.com/user-attachments/assets/29634d90-2258-4928-9414-3760ac9964a5" />
 
 # Result: 
 Thus, the program was implemented and executed successfully, and the required output was obtained.
@@ -263,6 +308,9 @@ Thus, the program was implemented and executed successfully, and the required ou
 ### Step 9:
   Stop
 # Program:
+~~~
+
+~~~
 # Output:
 # Result: 
 Thus, the program was implemented and executed successfully, and the required output was obtained.
